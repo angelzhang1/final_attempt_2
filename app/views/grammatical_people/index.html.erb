@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all grammatical people
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new grammatical person
+    </h2>
+
+    <form action="/insert_grammatical_person" method="post">
+      <div>
+        <label for="pov_box">
+          Pov
+        </label>
+
+        <input type="text" id="pov_box" name="query_pov">
+      </div>
+
+      <button>
+        Create grammatical person
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Pov
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_grammatical_people.each do |a_grammatical_person| %>
+      <tr>
+        <td>
+          <%= a_grammatical_person.id %>
+        </td>
+
+        <td>
+          <%= a_grammatical_person.pov %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_grammatical_person.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_grammatical_person.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/grammatical_people/<%= a_grammatical_person.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Grammatical person resource:
+
+  # CREATE
+  post("/insert_grammatical_person", { :controller => "grammatical_people", :action => "create" })
+
+  # READ
+  get("/grammatical_people", { :controller => "grammatical_people", :action => "index" })
+
+  get("/grammatical_people/:path_id", { :controller => "grammatical_people", :action => "show" })
+
+  # UPDATE
+
+  post("/modify_grammatical_person/:path_id", { :controller => "grammatical_people", :action => "update" })
+
+  # DELETE
+  get("/delete_grammatical_person/:path_id", { :controller => "grammatical_people", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_09_041522) do
+ActiveRecord::Schema.define(version: 2023_03_09_042633) do
+
+  create_table "grammatical_people", force: :cascade do |t|
+    t.string "pov"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"

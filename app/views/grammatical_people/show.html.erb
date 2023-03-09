@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Grammatical person #<%= @the_grammatical_person.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/grammatical_people">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_grammatical_person/<%= @the_grammatical_person.id %>">
+          Delete grammatical person
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Pov
+      </dt>
+      <dd>
+        <%= @the_grammatical_person.pov %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_grammatical_person.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_grammatical_person.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit grammatical person
+    </h2>
+
+    <form action="/modify_grammatical_person/<%= @the_grammatical_person.id %>"  method="post" >
+      <div>
+        <label for="pov_box">
+          Pov
+        </label>
+
+        <input type="text" id="pov_box" name="query_pov" value="<%= @the_grammatical_person.pov %>">
+      </div>
+
+      <button>
+        Update grammatical person
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
