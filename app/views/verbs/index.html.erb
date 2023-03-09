@@ -23,13 +23,6 @@
         <input type="text" id="verb_description_box" name="query_verb_description">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id">
-      </div>
 
       <button>
         Create verb
@@ -78,7 +71,7 @@
         </td>
 
         <td>
-          <%= a_verb.user_id %>
+          <%= a_verb.user.first_name %>
         </td>
 
         <td>

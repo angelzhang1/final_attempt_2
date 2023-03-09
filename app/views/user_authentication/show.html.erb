@@ -1,1 +1,106 @@
 <h1><%= @current_user.first_name %>'s Frequently Forgotton Verbs </h1>
+
+
+<div>
+    <h2>
+      Add a new verb
+    </h2> 
+
+    <form action="/insert_verb" method="post">
+
+      <div>
+        <label for="query_verb_description">
+          Verb
+        </label>
+          <input type="text" id="title_box" name="query_verb_description">
+
+
+      </div>
+
+      <button>
+        Add this verb!
+      </button>
+    </form>
+  </div>
+
+
+
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          Verb ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Verb
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+
+        <th>
+          Add indicatives
+        </th>
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_verbs.each do |a_verb| %>
+      <tr>
+        <td>
+          <%= a_verb.id %>
+        </td>
+
+        <td>
+          <%= a_verb.user_id %>
+        </td>
+
+        <td>
+          <%= a_verb.verb_description %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_verb.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_verb.updated_at) %> ago
+        </td>
+
+
+        <td>
+          <a href="/indicatives/<%= a_verb.id %>">
+          Add Indicatives
+          </a>
+
+        </td>
+        <td>
+          <a href="/verbs/<%= a_verb.id %>">
+            Show details
+          </a>
+        </td>
+
+        <td>
+          <a href="/delete_verb/<%= a_verb.id %>">
+          Delete
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+</hr>

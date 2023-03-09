@@ -4,9 +4,9 @@ class UserAuthenticationController < ApplicationController
 
   #each user's "my page"
   def show
-    #matching_verbs = Verb.all
+    matching_verbs = Verb.all
 
-    #@list_of_verbs = matching_verbs.order({ :created_at => :desc })
+    @list_of_verbs = matching_verbs.order({ :created_at => :desc })
     render({ :template => "user_authentication/show.html.erb" })
   end
 
