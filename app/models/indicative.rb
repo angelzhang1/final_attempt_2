@@ -12,4 +12,6 @@
 #  verb_id               :integer
 #
 class Indicative < ApplicationRecord
+  belongs_to(:verb, { :required => true, :class_name => "Verb", :foreign_key => "verb_id" })
+  belongs_to(:pov, { :required => true, :class_name => "GrammaticalPerson", :foreign_key => "pov_id" })
 end

@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class GrammaticalPerson < ApplicationRecord
+  has_many(:indicatives, { :class_name => "Indicative", :foreign_key => "pov_id", :dependent => :destroy })
 end
