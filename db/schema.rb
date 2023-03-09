@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_09_171504) do
+ActiveRecord::Schema.define(version: 2023_03_09_172313) do
 
   create_table "grammatical_people", force: :cascade do |t|
     t.string "pov"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "indicatives", force: :cascade do |t|
+    t.integer "verb_id"
+    t.integer "pov_id"
+    t.string "present_conjugation"
+    t.string "preterite_conjugation"
+    t.string "imperfect_conjugation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

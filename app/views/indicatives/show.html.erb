@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Indicative #<%= @the_indicative.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/indicatives">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_indicative/<%= @the_indicative.id %>">
+          Delete indicative
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Verb
+      </dt>
+      <dd>
+        <%= @the_indicative.verb_id %>
+      </dd>
+
+      <dt>
+        Pov
+      </dt>
+      <dd>
+        <%= @the_indicative.pov_id %>
+      </dd>
+
+      <dt>
+        Present conjugation
+      </dt>
+      <dd>
+        <%= @the_indicative.present_conjugation %>
+      </dd>
+
+      <dt>
+        Preterite conjugation
+      </dt>
+      <dd>
+        <%= @the_indicative.preterite_conjugation %>
+      </dd>
+
+      <dt>
+        Imperfect conjugation
+      </dt>
+      <dd>
+        <%= @the_indicative.imperfect_conjugation %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_indicative.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_indicative.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit indicative
+    </h2>
+
+    <form action="/modify_indicative/<%= @the_indicative.id %>"  method="post" >
+      <div>
+        <label for="verb_id_box">
+          Verb
+        </label>
+
+        <input type="text" id="verb_id_box" name="query_verb_id" value="<%= @the_indicative.verb_id %>">
+      </div>
+
+      <div>
+        <label for="pov_id_box">
+          Pov
+        </label>
+
+        <input type="text" id="pov_id_box" name="query_pov_id" value="<%= @the_indicative.pov_id %>">
+      </div>
+
+      <div>
+        <label for="present_conjugation_box">
+          Present conjugation
+        </label>
+
+        <input type="text" id="present_conjugation_box" name="query_present_conjugation" value="<%= @the_indicative.present_conjugation %>">
+      </div>
+
+      <div>
+        <label for="preterite_conjugation_box">
+          Preterite conjugation
+        </label>
+
+        <input type="text" id="preterite_conjugation_box" name="query_preterite_conjugation" value="<%= @the_indicative.preterite_conjugation %>">
+      </div>
+
+      <div>
+        <label for="imperfect_conjugation_box">
+          Imperfect conjugation
+        </label>
+
+        <input type="text" id="imperfect_conjugation_box" name="query_imperfect_conjugation" value="<%= @the_indicative.imperfect_conjugation %>">
+      </div>
+
+      <button>
+        Update indicative
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

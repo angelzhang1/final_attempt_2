@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all indicatives
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new indicative
+    </h2>
+
+    <form action="/insert_indicative" method="post">
+      <div>
+        <label for="verb_id_box">
+          Verb
+        </label>
+
+        <input type="text" id="verb_id_box" name="query_verb_id">
+      </div>
+
+      <div>
+        <label for="pov_id_box">
+          Pov
+        </label>
+
+        <input type="text" id="pov_id_box" name="query_pov_id">
+      </div>
+
+      <div>
+        <label for="present_conjugation_box">
+          Present conjugation
+        </label>
+
+        <input type="text" id="present_conjugation_box" name="query_present_conjugation">
+      </div>
+
+      <div>
+        <label for="preterite_conjugation_box">
+          Preterite conjugation
+        </label>
+
+        <input type="text" id="preterite_conjugation_box" name="query_preterite_conjugation">
+      </div>
+
+      <div>
+        <label for="imperfect_conjugation_box">
+          Imperfect conjugation
+        </label>
+
+        <input type="text" id="imperfect_conjugation_box" name="query_imperfect_conjugation">
+      </div>
+
+      <button>
+        Create indicative
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Verb
+        </th>
+
+        <th>
+          Pov
+        </th>
+
+        <th>
+          Present conjugation
+        </th>
+
+        <th>
+          Preterite conjugation
+        </th>
+
+        <th>
+          Imperfect conjugation
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_indicatives.each do |an_indicative| %>
+      <tr>
+        <td>
+          <%= an_indicative.id %>
+        </td>
+
+        <td>
+          <%= an_indicative.verb_id %>
+        </td>
+
+        <td>
+          <%= an_indicative.pov_id %>
+        </td>
+
+        <td>
+          <%= an_indicative.present_conjugation %>
+        </td>
+
+        <td>
+          <%= an_indicative.preterite_conjugation %>
+        </td>
+
+        <td>
+          <%= an_indicative.imperfect_conjugation %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_indicative.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_indicative.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/indicatives/<%= an_indicative.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

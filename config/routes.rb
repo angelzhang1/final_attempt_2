@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Indicative resource:
+
+  # CREATE
+  post("/insert_indicative", { :controller => "indicatives", :action => "create" })
+          
+  # READ
+  get("/indicatives", { :controller => "indicatives", :action => "index" })
+  
+  get("/indicatives/:path_id", { :controller => "indicatives", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_indicative/:path_id", { :controller => "indicatives", :action => "update" })
+  
+  # DELETE
+  get("/delete_indicative/:path_id", { :controller => "indicatives", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Verb resource:
 
   # CREATE
