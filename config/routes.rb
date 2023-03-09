@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Verb resource:
+
+  # CREATE
+  post("/insert_verb", { :controller => "verbs", :action => "create" })
+          
+  # READ
+  get("/verbs", { :controller => "verbs", :action => "index" })
+  
+  get("/verbs/:path_id", { :controller => "verbs", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_verb/:path_id", { :controller => "verbs", :action => "update" })
+  
+  # DELETE
+  get("/delete_verb/:path_id", { :controller => "verbs", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Grammatical person resource:
 
   # CREATE

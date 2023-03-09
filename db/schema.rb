@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_09_042633) do
+ActiveRecord::Schema.define(version: 2023_03_09_171504) do
 
   create_table "grammatical_people", force: :cascade do |t|
     t.string "pov"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2023_03_09_042633) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "verbs", force: :cascade do |t|
+    t.string "verb_description"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all verbs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new verb
+    </h2>
+
+    <form action="/insert_verb" method="post">
+      <div>
+        <label for="verb_description_box">
+          Verb description
+        </label>
+
+        <input type="text" id="verb_description_box" name="query_verb_description">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create verb
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Verb description
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_verbs.each do |a_verb| %>
+      <tr>
+        <td>
+          <%= a_verb.id %>
+        </td>
+
+        <td>
+          <%= a_verb.verb_description %>
+        </td>
+
+        <td>
+          <%= a_verb.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_verb.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_verb.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/verbs/<%= a_verb.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
