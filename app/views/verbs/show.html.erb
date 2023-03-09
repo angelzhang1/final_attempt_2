@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Verb #<%= @the_verb.id %> details
+      <%= @the_verb.verb_description %> details
     </h1>
 
     <div>
@@ -26,12 +26,7 @@
         <%= @the_verb.verb_description %>
       </dd>
 
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_verb.user_id %>
-      </dd>
+    
 
       <dt>
         Created at
@@ -68,13 +63,6 @@
         <input type="text" id="verb_description_box" name="query_verb_description" value="<%= @the_verb.verb_description %>">
       </div>
 
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_verb.user_id %>">
-      </div>
 
       <button>
         Update verb
@@ -82,5 +70,259 @@
     </form>
   </div>
 </div>
+
+<hr>
+
+
+
+<form action="/insert_indicative/<%= @the_verb.id %>"  method="post" >
+
+       <table border="1">
+      <tr>
+        <th>
+        </th>
+        <th>
+          Present
+        </th>
+
+        <th>
+          Preterite
+        </th>
+
+        <th>
+          Imperfect
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      
+      <tr>
+        <td>
+          Yo
+        </td>
+
+        <td>
+          <div>
+            <label for="present_yo_box"> </label>
+
+            <input type="text" id="present_yo_box" name="query_present_yo">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="preterite_yo_box"> </label>
+
+            <input type="text" id="preterite_yo_box" name="query_preterite_yo">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="imperfect_yo_box"> </label>
+
+            <input type="text" id="imperfect_yo_box" name="query_imperfect_yo">
+          </div>
+        </td>
+
+        <td>
+          Show details?
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>
+          Tú 
+        </td>
+
+        <td>
+          <div>
+            <label for="present_tu_box"> </label>
+
+            <input type="text" id="present_tu_box" name="query_present_tu">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="preterite_tu_box"> </label>
+
+            <input type="text" id="preterite_tu_box" name="query_preterite_tu">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="imperfect_tu_box"> </label>
+
+            <input type="text" id="imperfect_tu_box" name="query_imperfect_tu">
+          </div>
+        </td>
+
+        <td>
+          Show details?
+        </td>
+      </tr>
+
+
+      <tr>
+        <td>
+          Ella/Ello/Usted
+        </td>
+        
+
+        <td>
+          <div>
+            <label for="present_ella_box"> </label>
+
+            <input type="text" id="present_ella_box" name="query_present_ella">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="preterite_ella_box"> </label>
+
+            <input type="text" id="preterite_ella_box" name="query_preterite_ella">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="imperfect_ella_box"> </label>
+
+            <input type="text" id="imperfect_ella_box" name="query_imperfect_ella">
+          </div>
+        </td>
+        
+        <td>
+          Show details?
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Nosotros
+        </td>
+        
+
+        <td>
+          <div>
+            <label for="present_nosotros_box"> </label>
+
+            <input type="text" id="present_nosotros_box" name="query_present_nosotros">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="preterite_nosotros_box"> </label>
+
+            <input type="text" id="preterite_nosotros_box" name="query_preterite_nosotros">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="imperfect_nosotros_box"> </label>
+
+            <input type="text" id="imperfect_nosotros_box" name="query_imperfect_nosotros">
+          </div>
+        </td>
+
+        <td>
+          Show details?
+        </td>
+
+      </tr>
+
+      <tr>
+        <td>
+          Vosotros
+        </td>
+        
+
+        <td>
+          <div>
+            <label for="present_vosotros_box"> </label>
+
+            <input type="text" id="present_vosotros_box" name="query_present_vosotros">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="preterite_vosotros_box"> </label>
+
+            <input type="text" id="preterite_vosotros_box" name="query_preterite_vosotros">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="imperfect_vosotros_box"> </label>
+
+            <input type="text" id="imperfect_vosotros_box" name="query_imperfect_vosotros">
+          </div>
+        </td>
+
+        <td>
+          Show details?
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+        Ellas/Ello/Ustedes
+        </td>
+
+
+        <td>
+          <div>
+            <label for="present_ustedes_box"> </label>
+
+            <input type="text" id="present_ustedes_box" name="query_present_ustedes">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="preterite_ustedes_box"> </label>
+
+            <input type="text" id="preterite_ustedes_box" name="query_preterite_ustedes">
+          </div>
+        </td>
+
+        <td>
+          <div>
+            <label for="imperfect_ustedes_box"> </label>
+
+            <input type="text" id="imperfect_ustedes_box" name="query_imperfect_ustedes">
+          </div>
+        </td>
+
+
+        <td>
+          Show details?
+        </td>
+      </tr>
+      
+    </table>
+  </div>
+
+      <button>
+        Add indicatives
+      </button>
+
+</form>
+
+
+<hr>
+
+
+
 
 <hr>

@@ -24,9 +24,9 @@ class VerbsController < ApplicationController
 
     if the_verb.valid?
       the_verb.save
-      redirect_to("/verbs", { :notice => "Verb created successfully." })
+      redirect_to("/my_page", { :notice => "Verb created successfully." })
     else
-      redirect_to("/verbs", { :alert => the_verb.errors.full_messages.to_sentence })
+      redirect_to("/my_page", { :alert => the_verb.errors.full_messages.to_sentence })
     end
   end
 
