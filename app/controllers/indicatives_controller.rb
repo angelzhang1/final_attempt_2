@@ -7,9 +7,9 @@ class IndicativesController < ApplicationController
 
     #code for the table of all indicatives created
     matching_indicatives = Indicative.all
-    #@matching_verbs = @current_user.verbs
-    #matching_indicatives = @matching_verbs.indicatives
-    @list_of_indicatives = matching_indicatives.order({ :created_at => :desc })
+    matching_verbs = Verb.where({ :user_id => @current_user.id })
+    links = matching_indicatives.where({ :verb_id => matching_verbs.ids })
+    @list_of_indicatives = links.order({ :created_at => :desc })
 
     render({ :template => "indicatives/index.html.erb" })
   end

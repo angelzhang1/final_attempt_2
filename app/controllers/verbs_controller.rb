@@ -47,7 +47,7 @@ class VerbsController < ApplicationController
     the_verb = Verb.where({ :id => the_id }).at(0)
 
     the_verb.verb_description = params.fetch("query_verb_description")
-    the_verb.user_id = params.fetch("query_user_id")
+    the_verb.user_id = session.fetch(:user_id)
 
     if the_verb.valid?
       the_verb.save
