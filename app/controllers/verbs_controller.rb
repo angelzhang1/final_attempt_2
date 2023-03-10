@@ -1,6 +1,7 @@
 class VerbsController < ApplicationController
   def index
-    matching_verbs = Verb.all
+    self.load_current_user
+    matching_verbs = @current_user.verbs
 
     @list_of_verbs = matching_verbs.order({ :created_at => :desc })
 
@@ -14,6 +15,17 @@ class VerbsController < ApplicationController
 
     @the_verb = matching_verbs.at(0)
 
+    matching_indicatives = Indicative.all
+
+    matching_indicatives_link = Indicative.where({ :verb_id => the_id })
+
+    @the_indicative_yo_link = matching_indicatives_link.at(0)
+    @the_indicative_tu_link = matching_indicatives_link.at(1)
+    @the_indicative_usted_link = matching_indicatives_link.at(2)
+    @the_indicative_nos_link = matching_indicatives_link.at(3)
+    @the_indicative_os_link = matching_indicatives_link.at(4)
+    @the_indicative_ellos_link = matching_indicatives_link.at(5)
+
     render({ :template => "verbs/show.html.erb" })
   end
 
@@ -24,9 +36,9 @@ class VerbsController < ApplicationController
 
     if the_verb.valid?
       the_verb.save
-      redirect_to("/my_page", { :notice => "Verb created successfully." })
+      redirect_to("/verbs", { :notice => "Verb created successfully." })
     else
-      redirect_to("/my_page", { :alert => the_verb.errors.full_messages.to_sentence })
+      redirect_to("/verbs", { :alert => the_verb.errors.full_messages.to_sentence })
     end
   end
 

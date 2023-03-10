@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Indicative #<%= @the_indicative %> details
+      Indicative <%= @the_indicative.pov.pov %> Conjugations for <%= @the_indicative.verb.verb_description %>
     </h1>
 
     <div>
@@ -10,6 +10,11 @@
           Go back
         </a>
       </div>
+      
+      <div>
+        <a href="/verbs/<%= @the_indicative.verb_id %>">
+          <%= @the_indicative.verb.verb_description %> details
+        </a>
 
       <div>
         <a href="/delete_indicative/<%= @the_indicative.id %>">
@@ -19,19 +24,6 @@
     </div>
 
     <dl>
-      <dt>
-        Verb
-      </dt>
-      <dd>
-        <%= @the_indicative.verb_id %>
-      </dd>
-
-      <dt>
-        Pov
-      </dt>
-      <dd>
-        <%= @the_indicative.pov_id %>
-      </dd>
 
       <dt>
         Present conjugation
@@ -83,18 +75,17 @@
     <form action="/modify_indicative/<%= @the_indicative.id %>"  method="post" >
       <div>
         <label for="verb_id_box">
-          Verb
+
         </label>
 
-        <input type="text" id="verb_id_box" name="query_verb_id" value="<%= @the_indicative.verb_id %>">
+        <input type="hidden" id="verb_id_box" name="query_verb_id" value="<%= @the_indicative.verb_id %>">
       </div>
 
       <div>
         <label for="pov_id_box">
-          Pov
         </label>
 
-        <input type="text" id="pov_id_box" name="query_pov_id" value="<%= @the_indicative.pov_id %>">
+        <input type="hidden" id="pov_id_box" name="query_pov_id" value="<%= @the_indicative.pov_id %>">
       </div>
 
       <div>

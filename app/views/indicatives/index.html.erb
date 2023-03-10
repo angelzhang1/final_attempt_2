@@ -24,7 +24,7 @@
           Verb
         </label>
         <select name="query_verb_id">
-          <% Verb.all.order(:title).each do |a_verb| %>
+          <% @list_of_verbs.order(:title).each do |a_verb| %>
             <option value="<%= a_verb.id %>">
               <%= a_verb.verb_description %> 
              </option>

@@ -1,7 +1,14 @@
 class IndicativesController < ApplicationController
   def index
-    matching_indicatives = Indicative.all
+    self.load_current_user
+    #code for restricting drop down verbs to the user's own verbs
+    matching_verbs = @current_user.verbs
+    @list_of_verbs = matching_verbs.order({ :created_at => :desc })
 
+    #code for the table of all indicatives created
+    matching_indicatives = Indicative.all
+    #@matching_verbs = @current_user.verbs
+    #matching_indicatives = @matching_verbs.indicatives
     @list_of_indicatives = matching_indicatives.order({ :created_at => :desc })
 
     render({ :template => "indicatives/index.html.erb" })
@@ -27,7 +34,7 @@ class IndicativesController < ApplicationController
 
     if the_indicative.valid?
       the_indicative.save
-      redirect_to("/indicatives", { :notice => "Indicative created successfully." })
+      redirect_to("/indicatives/#{the_indicative.id}", { :notice => "Indicative created successfully." })
     else
       redirect_to("/indicatives", { :alert => the_indicative.errors.full_messages.to_sentence })
     end
@@ -57,6 +64,6 @@ class IndicativesController < ApplicationController
 
     the_indicative.destroy
 
-    redirect_to("/indicatives", { :notice => "Indicative deleted successfully." })
+    redirect_to("/verbs", { :notice => "Indicative deleted successfully." })
   end
 end

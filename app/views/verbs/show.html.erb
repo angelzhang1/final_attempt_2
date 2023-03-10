@@ -98,6 +98,7 @@
         </th>
       </tr>
 
+
       <tr>
         <% x =Indicative.where({:pov_id => 1}).where({:verb_id => @the_verb.id}).at(0) %>
         <td>
@@ -109,6 +110,7 @@
             N/A
           <% else %>
             <%= x.present_conjugation %>
+            
           <% end %>
           
         </td>
@@ -132,7 +134,15 @@
 
 
         <td>
-          Show details?
+           <% if x == nil %>
+           <a href="/indicatives">
+            Add these conjugations!
+          </a>
+          <% else %>
+            <a href="/indicatives/<%= @the_indicative_yo_link.id %>">
+            Show details
+            </a>
+          <% end %>
         </td>
 
       </tr>
@@ -170,7 +180,15 @@
         </td>
 
         <td>
-          Show details?
+           <% if tu == nil %>
+            <a href="/indicatives">
+            Add these conjugations!
+            </a>
+          <% else %>
+            <a href="/indicatives/<%= @the_indicative_tu_link.id %>">
+            Show details
+            </a>
+          <% end %>
         </td>
       </tr>
 
@@ -208,7 +226,15 @@
         </td>
 
         <td>
-          Show details?
+          <% if she == nil %>
+            <a href="/indicatives">
+            Add these conjugations!
+            </a>
+          <% else %>
+            <a href="/indicatives/<%= @the_indicative_usted_link.id %>">
+            Show details
+            </a>
+          <% end %>
         </td>
       </tr>
 
@@ -244,7 +270,15 @@
         </td>
 
         <td>
-          Show details?
+           <% if we == nil %>
+            <a href="/indicatives">
+            Add these conjugations!
+            </a>
+          <% else %>
+            <a href="/indicatives/<%= @the_indicative_nos_link.id %>">
+            Show details
+            </a>
+          <% end %>
         </td>
 
       </tr>
@@ -281,7 +315,15 @@
         </td>
 
         <td>
-          Show details?
+           <% if yall == nil %>
+            <a href="/indicatives">
+            Add these conjugations!
+            </a>
+          <% else %>
+            <a href="/indicatives/<%= @the_indicative_os_link.id %>">
+            Show details
+            </a>
+          <% end %>
         </td>
       </tr>
 
@@ -319,9 +361,18 @@
 
 
         <td>
-          Show details?
+           <% if they == nil %>
+            <a href="/indicatives">
+            Add these conjugations!
+            </a>
+          <% else %>
+            <a href="/indicatives/<%= @the_indicative_ellos_link.id %>">
+            Show details
+            </a>
+          <% end %>
         </td>
       </tr>
+
   </table>
 </div>
 
