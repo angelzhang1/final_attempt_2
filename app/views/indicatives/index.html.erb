@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all indicatives
+      Add indicative conjugations!
     </h1>
   </div>
 </div>
@@ -11,8 +11,12 @@
 <div>
   <div>
     <h2>
-      Add a new indicative
+      How to add indicative conjugations:
     </h2>
+
+    <p>
+      Fill out the form below by selecting the verb you want to conjugate and the grammatical person of the conjugation. Then, type the conjugations and hit the button!
+    </p>
 
     <form action="/insert_indicative" method="post">
       <div>
@@ -116,6 +120,7 @@
       <% @list_of_indicatives.each do |an_indicative| %>
       <tr>
         <td>
+          
           <%= an_indicative.id %>
         </td>
 
