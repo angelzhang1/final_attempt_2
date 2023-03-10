@@ -54,7 +54,7 @@
       Edit verb
     </h2>
 
-    <form action="/modify_verb/<%= @the_verb.id %>"  method="post" >
+    <form action="/modify_verb/<%= @the_verb.id %>"  method="post">
       <div>
         <label for="verb_description_box">
           Verb description
@@ -73,12 +73,15 @@
 
 
 <hr>
+
 <h2> Indicative Conjugations </h2>
+
 <div>
   <table border="1">
       <tr>
         <th>
         </th>
+
         <th>
           Present
         </th>
@@ -96,19 +99,21 @@
       </tr>
 
       <tr>
-      
+        <% x =Indicative.where({:pov_id => 1}).where({:verb_id => @the_verb.id}).at(0) %>
         <td>
           Yo
         </td>
 
         <td>
-            <%= Indicatives.where({ :verb_id => :path_id, :pov_id => 1 }).where({ :present_conjugation=> :present_conjugation}).at(0) %>
+          <%= x.present_conjugation %>
         </td>
 
         <td>
+          <%= x.preterite_conjugation %>
         </td>
 
         <td>
+          <%= x.imperfect_conjugation %>
         </td>
 
 
@@ -119,17 +124,23 @@
       </tr>
 
       <tr>
+        <% tu =Indicative.where({:pov_id => 2}).where({:verb_id => @the_verb.id}).at(0) %>
+
         <td>
           Tú 
         </td>
 
         <td>
+          <%= tu.present_conjugation %>
+
         </td>
 
         <td>
+          <%= tu.preterite_conjugation %>
         </td>
 
         <td>
+          <%= tu.imperfect_conjugation %>
         </td>
 
         <td>
@@ -139,17 +150,23 @@
 
 
       <tr>
+
+        <% she =Indicative.where({:pov_id => 3}).where({:verb_id => @the_verb.id}).at(0)%>
+
         <td>
-          Ella/Ello/Usted
-        </td>
-        
-        <td>
+          Ella/Él/Usted
         </td>
 
         <td>
+          <%= she.present_conjugation %>
         </td>
 
         <td>
+           <%= she.preterite_conjugation %>
+        </td>
+
+        <td>
+          <%= she.imperfect_conjugation %>
         </td>
 
         <td>
@@ -158,18 +175,23 @@
       </tr>
 
       <tr>
+        <% we =Indicative.where({:pov_id => 4}).where({:verb_id => @the_verb.id}).at(0)%>
+
         <td>
           Nosotros
         </td>
+
         <td>
+          <%= we.present_conjugation %>
         </td>
 
         <td>
+           <%= we.preterite_conjugation %>
         </td>
 
         <td>
+          <%= we.imperfect_conjugation %>
         </td>
-
 
         <td>
           Show details?
@@ -178,21 +200,23 @@
       </tr>
 
       <tr>
+          <% yall =Indicative.where({:pov_id => 5}).where({:verb_id => @the_verb.id}).at(0)%>
+
         <td>
           Vosotros
         </td>
         
         <td>
+          <%= yall.present_conjugation %>
         </td>
 
         <td>
+           <%= yall.preterite_conjugation %>
         </td>
 
         <td>
+          <%= yall.imperfect_conjugation %>
         </td>
-
-
-
 
         <td>
           Show details?
@@ -200,18 +224,24 @@
       </tr>
 
       <tr>
+
+        <% they =Indicative.where({:pov_id => 6}).where({:verb_id => @the_verb.id}).at(0)%>
+
         <td>
         Ellas/Ello/Ustedes
         </td>
 
         <td>
+          <%= they.present_conjugation %>
         </td>
 
         <td>
+           <%= they.preterite_conjugation %>
         </td>
 
         <td>
-        </td>
+          <%= they.imperfect_conjugation %>
+        </td>>
 
 
         <td>
