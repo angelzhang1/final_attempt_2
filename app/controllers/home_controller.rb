@@ -8,7 +8,7 @@ class HomeController < ApplicationController
       matching_verbs = Verb.all
       @verb_of_the_day = matching_verbs.sample
     end
-
+    #hi
     #matching_verbs = Verb.all
     #@verb_of_the_day = matching_verbs.sample
     render({ :template => "home/index.html.erb" })
