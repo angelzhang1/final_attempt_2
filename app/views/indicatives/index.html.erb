@@ -16,19 +16,29 @@
 
     <form action="/insert_indicative" method="post">
       <div>
-        <label for="verb_id_box">
+        <label for="query_verb_id">
           Verb
         </label>
-
-        <input type="text" id="verb_id_box" name="query_verb_id">
+        <select name="query_verb_id">
+          <% Verb.all.order(:title).each do |a_verb| %>
+            <option value="<%= a_verb.id %>">
+              <%= a_verb.verb_description %> 
+             </option>
+          <% end %>      
+        </select>
       </div>
 
       <div>
-        <label for="pov_id_box">
+        <label for="query_pov_id">
           Pov
         </label>
-
-        <input type="text" id="pov_id_box" name="query_pov_id">
+        <select name="query_pov_id">
+          <% GrammaticalPerson.all.order(:title).each do |a_pov| %>
+            <option value="<%= a_pov.id %>">
+              <%= a_pov.pov %> 
+             </option>
+          <% end %>      
+        </select>
       </div>
 
       <div>
@@ -110,11 +120,11 @@
         </td>
 
         <td>
-          <%= an_indicative.verb_id %>
+          <%= an_indicative.verb.verb_description %>
         </td>
 
         <td>
-          <%= an_indicative.pov_id %>
+          <%= an_indicative.pov.pov %>
         </td>
 
         <td>

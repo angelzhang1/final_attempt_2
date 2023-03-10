@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all verbs
+     <%= @current_user.first_name %>'s Frequently Forgotton Verbs
     </h1>
   </div>
 </div>
@@ -56,6 +56,10 @@
           Updated at
         </th>
 
+
+        <th>
+          Add indicatives
+        </th>
         <th>
         </th>
       </tr>
@@ -82,8 +86,20 @@
         </td>
 
         <td>
+          <a href="/indicatives/:path_id">
+          Add Indicatives
+          </a>
+        </td>
+
+        <td>
           <a href="/verbs/<%= a_verb.id %>">
             Show details
+          </a>
+        </td>
+
+        <td>
+          <a href="/delete_verb/<%= a_verb.id %>">
+          Delete
           </a>
         </td>
       </tr>

@@ -45,7 +45,7 @@ class IndicativesController < ApplicationController
 
     if the_indicative.valid?
       the_indicative.save
-      redirect_to("/indicatives/#{the_indicative.id}", { :notice => "Indicative updated successfully."} )
+      redirect_to("/indicatives/#{the_indicative.id}", { :notice => "Indicative updated successfully." })
     else
       redirect_to("/indicatives/#{the_indicative.id}", { :alert => the_indicative.errors.full_messages.to_sentence })
     end
@@ -57,6 +57,6 @@ class IndicativesController < ApplicationController
 
     the_indicative.destroy
 
-    redirect_to("/indicatives", { :notice => "Indicative deleted successfully."} )
+    redirect_to("/indicatives", { :notice => "Indicative deleted successfully." })
   end
 end
