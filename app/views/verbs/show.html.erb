@@ -75,7 +75,7 @@
 <hr>
 <h2> Indicative Conjugations </h2>
 <div>
-    <table border="1">
+  <table border="1">
       <tr>
         <th>
         </th>
@@ -96,12 +96,13 @@
       </tr>
 
       <tr>
+      
         <td>
           Yo
         </td>
 
         <td>
-
+            <%= Indicatives.where({ :verb_id => :path_id, :pov_id => 1 }).where({ :present_conjugation=> :present_conjugation}).at(0) %>
         </td>
 
         <td>
@@ -217,9 +218,8 @@
           Show details?
         </td>
       </tr>
-
-    </table>
-  </div>
+  </table>
+</div>
 
 
 
